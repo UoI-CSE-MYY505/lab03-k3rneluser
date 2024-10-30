@@ -2,7 +2,7 @@
 
 ## UoI-CSE-MYY505 lab03
 
-## Ioannis Gardikiotis 5197
+## Ioannis Gardikiotis 
 
 **TODO - Update your name in this readme. Leave 1 space after the ## to preserve the text formating (markdown)**
 
