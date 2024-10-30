@@ -101,6 +101,30 @@ rgb888_to_rgb565:
 # ----------------------------------------
 # Write your code here.
 # You may move the "return" instruction (jalr zero, ra, 0).
+        add  t0, zero, zero # row counter
+rowl:
+    bge  t0, a2, outRowl
+    add  t1, zero, zero # column counter
+columnl:
+    bge  t1, a1, outColumnl
+    lhu  t2, 0(a0)
+    srli t3, t2, 8  
+    andi t3, t3, 0xf8 
+    sb   t3, 0(a3) 
+    srli t3, t2, 3  
+    andi t3, t3, 0xfc 
+    sb   t3, 1(a3) 
+    slli t3, t2, 3
+    andi t3, t3, 0xf8 
+    sb   t3, 3(a3) 
+    addi a0, a0, 2   
+    addi a3, a3, 3   
+    addi t1, t1, 1
+    j    columnl
+outColumnl:
+    addi t0, t0, 1
+    j    rowl
+outRowl:
     jalr zero, ra, 0
 
 
